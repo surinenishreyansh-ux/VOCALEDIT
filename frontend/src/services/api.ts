@@ -1,6 +1,13 @@
 import { Project, CompData, Segment } from '../types';
 
-const API_BASE = '/api';
+export const API_HOST = (import.meta.env.VITE_API_URL || '').replace(/\/+$/, '');
+const API_BASE = `${API_HOST}/api`;
+
+export function getAudioUrl(path: string | undefined): string {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  return `${API_HOST}${path}`;
+}
 
 export async function createProject(name: string = 'Untitled Vocal Comp', bpm: number = 120, key: string = 'C Major'): Promise<Project> {
   const res = await fetch(`${API_BASE}/projects`, {

@@ -497,3 +497,8 @@ def export_comp(project_id: str, format: str = "wav", bit_depth: int = 24):
         )
     else:
         raise HTTPException(status_code=400, detail="Unsupported format. Choose 'wav' or 'mp3'.")
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)

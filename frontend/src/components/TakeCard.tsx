@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Trash2, Volume2, Music, CheckCircle2 } from 'lucide-react';
 import { Take } from '../types';
 import { WaveformCanvas } from './WaveformCanvas';
+import { getAudioUrl } from '../services/api';
 
 interface TakeCardProps {
   take: Take;
@@ -67,7 +68,7 @@ export const TakeCard: React.FC<TakeCardProps> = ({
 
   return (
     <div className="glass-card rounded-xl p-4 border border-studio-border hover:border-studio-borderLight transition-all group">
-      <audio ref={audioRef} src={take.file_url} preload="metadata" />
+      <audio ref={audioRef} src={getAudioUrl(take.file_url)} preload="metadata" />
 
       <div className="flex items-center justify-between gap-4">
         {/* Left: Take Number and File Info */}

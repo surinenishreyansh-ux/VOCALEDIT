@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Sparkles, Music2, SkipBack, SkipForward } from 'lucide-react';
 import { CompData, Take } from '../types';
+import { getAudioUrl } from '../services/api';
 
 interface AudioPlayerProps {
   comp: CompData | null;
@@ -27,9 +28,10 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const activeAudioUrl = playbackMode === 'comp'
+  const rawUrl = playbackMode === 'comp'
     ? comp?.file_url
     : (referenceTake?.file_url || comp?.file_url);
+  const activeAudioUrl = getAudioUrl(rawUrl);
 
   const duration = comp?.duration || referenceTake?.duration || 20;
 
