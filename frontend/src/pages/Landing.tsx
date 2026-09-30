@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Sparkles, Sliders, Mic, ShieldCheck, Play, Layers } from 'lucide-react';
 import { HeroVisual } from '../components/HeroVisual';
+import { LandingSections } from '../components/LandingSections';
 
 interface LandingProps {
   onCreateCompClick: () => void;
@@ -36,7 +37,7 @@ export const Landing: React.FC<LandingProps> = ({
 
         {/* Hero Subtitle */}
         <p className="mt-6 text-base md:text-lg text-studio-textSecondary max-w-2xl mx-auto font-sans font-normal leading-relaxed">
-          VocalEditor analyzes your vocal performances and creates an intelligent first-pass comp from the strongest moments of every take.
+          Give VocalEditor your music, lyrics, vocal takes, and creative requirements. AI analyzes every performance and builds one polished vocal comp.
         </p>
 
         {/* CTA Buttons */}
@@ -100,6 +101,9 @@ export const Landing: React.FC<LandingProps> = ({
             </p>
           </div>
         </div>
+
+        {/* New Product Capability & Workflow Sections */}
+        <LandingSections onCreateCompClick={onCreateCompClick} />
       </div>
     </div>
   );
