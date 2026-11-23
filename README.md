@@ -1,5 +1,9 @@
 # VocalEditor — AI Vocal Comping Engine V1
 
+## Off Campus verification
+
+Off Campus code: `84Z765`
+
 > **Your best vocal. Built from every take.**
 > An AI-powered vocal comping system that analyzes multiple vocal takes, and automatically selects, aligns, and seamlessly combines the best time frames into a studio-ready final vocal.
 
